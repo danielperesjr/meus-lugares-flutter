@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meus_lugares/maps.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,7 +15,14 @@ class _HomeState extends State<Home> {
 
   void _deletePlace() {}
 
-  void _addPlace() {}
+  void _addPlace() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => Maps(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
