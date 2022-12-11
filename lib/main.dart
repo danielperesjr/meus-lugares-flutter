@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meus_lugares/home.dart';
+import 'package:meus_lugares/splash_screen.dart';
 
 void main() {
   runApp(MaterialApp(
     title: "Meus Lugares",
-    home: Home(),
+    home: SplashScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }
