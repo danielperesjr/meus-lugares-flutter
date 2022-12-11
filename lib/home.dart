@@ -8,8 +8,63 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List _myPlaces = ["São Paulo", "Suzano", "Mogi das Cruzes", "Itanhaém"];
+
+  void _openMap() {}
+
+  void _deletePlace() {}
+
+  void _addPlace() {}
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Meus Lugares"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Colors.lightBlueAccent,
+        onPressed: () {
+          _addPlace();
+        },
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+                itemCount: _myPlaces.length,
+                itemBuilder: (context, index) {
+                  String title = _myPlaces[index];
+                  return GestureDetector(
+                    onTap: () {
+                      _openMap();
+                    },
+                    child: Card(
+                      child: ListTile(
+                        title: Text(title),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                _deletePlace();
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.remove_circle,
+                                    color: Colors.red),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+          ),
+        ],
+      ),
+    );
   }
 }
